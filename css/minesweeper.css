@@ -1,0 +1,79 @@
+.minesweeper {
+    background: #31363c;
+    font-family: Lato,arial,sans-serif;
+}
+.minesweeper .row {
+    font-size:0px;
+}
+.minesweeper .tile {
+    position:relative;
+    display: inline-block;
+    margin:0 16px 16px 0;
+    border-radius:2px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background: #6fc0ff;
+    transition: margin 0.3s ease,
+            box-shadow 0.3s ease;
+    box-shadow: 1px 0px 0px #1976D2,0px 1px 0px #1976D2,
+            2px 1px 0px #1976D2,1px 2px 0px #1976D2,
+            3px 2px 0px #1976D2,2px 3px 0px #1976D2,
+            4px 3px 0px #1976D2,3px 4px 0px #1976D2,
+            5px 4px 0px #1976D2,4px 5px 0px #1976D2;
+}
+.minesweeper .tile:hover {
+    margin: 2px 14px 14px 2px;
+    transition: margin 0.3s ease,
+            box-shadow 0.3s ease;
+   box-shadow: 1px 0px 0px #1976D2,0px 1px 0px #1976D2,
+            2px 1px 0px #1976D2,1px 2px 0px #1976D2,
+            3px 2px 0px #1976D2,2px 3px 0px #1976D2,
+            4px 3px 0px #1976D2,3px 4px 0px #1976D2;
+}
+.minesweeper .tile:active {
+    margin:6px 10px 10px 6px;
+    background:#ADDBFF;
+    transition: margin 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+    box-shadow: 0px 0px 0px #1976D2;
+}
+.minesweeper .tile.open {
+    cursor:default;
+    text-align: center;
+    vertical-align: top;
+    background:#fafafa;
+    margin:6px 10px 10px 6px;
+    box-shadow: 0px 0px 0px #1976D2;
+}
+.minesweeper .tile.open span {
+    vertical-align: middle;
+    font-size: 32px;
+    font-weight:900;
+    line-height: 50px;
+}
+.minesweeper .tile.box1 {
+    color: #2980b9;
+}
+.minesweeper .tile.box2 {
+    color: #16a085;
+}
+.minesweeper .tile.box3 {
+    color: #f1c40f;
+}
+.minesweeper .tile.box4 {
+    color: #f39c12;
+}
+.minesweeper .tile.box5 {
+    color: #e67e22;
+}
+.minesweeper .tile.box6 {
+    color: #d35400;
+}
+.minesweeper .tile.box7 {
+    color: #e74c3c;
+}
+.minesweeper .tile.box8 {
+    color: #c0392b;
+}
