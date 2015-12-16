@@ -40,18 +40,18 @@
     box-shadow: 0px 0px 0px #1976D2;
 }
 .minesweeper .tile.open {
-    cursor:default;
+    margin:6px 10px 10px 6px;
     text-align: center;
     vertical-align: top;
+    cursor:default;
     background:#fafafa;
-    margin:6px 10px 10px 6px;
     box-shadow: 0px 0px 0px #1976D2;
 }
 .minesweeper .tile.open span {
     vertical-align: middle;
+    line-height: 50px;
     font-size: 32px;
     font-weight:900;
-    line-height: 50px;
 }
 .minesweeper .tile.box1 {
     color: #2980b9;
