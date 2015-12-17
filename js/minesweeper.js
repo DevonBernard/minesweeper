@@ -3,13 +3,16 @@ var Minesweeper = function(ele)
     this.container = $(ele);
     this.dimensions = {x: 8, y:8};
     this.mines = 10;
+    this.tilesOpened = 0;
     this.board = [];
 };
 
 Minesweeper.prototype.start = function()
 {
+    this.container.addClass('minesweeper');
     this.createBoard();
     this.setMines();
+    this.renderBoard();
 };
 
 Minesweeper.prototype.createBoard = function()
@@ -59,7 +62,7 @@ Minesweeper.prototype.setMine = function(x, y)
     }
 };
 
-Minesweeper.prototype.printBoard = function()
+Minesweeper.prototype.logBoard = function()
 {
     for(var y = 0; y < this.dimensions.y; y++)
     {
@@ -79,6 +82,19 @@ Minesweeper.prototype.printBoard = function()
     }
 };
 
+Minesweeper.prototype.renderBoard = function()
+{
+    for(var y = 0; y < this.dimensions.y; y++)
+    {
+        var row = $("<div class='row'></div>");
+        for(var x = 0; x < this.dimensions.x; x++)
+        {
+            row.append(this.board[y][x].render());
+        }
+        this.container.append(row);
+    }
+};
+
 var Tile = function()
 {
     this.opened = false;
@@ -86,3 +102,29 @@ var Tile = function()
     this.isMine = false;
     this.count = 0;
 };
+
+Tile.prototype.render = function()
+{
+    var value;
+
+    this.div = $("<div class='tile'></div>");
+
+    if(this.isMine)
+        this.div.append("<img src='img/explosion.png'>");
+    else if(this.count > 0)
+        this.div.append("<span>"+this.count+"</span>");
+    else
+        this.div.append("<span></span>");
+
+    $(this.div).click((function(){
+        this.open();
+    }).bind(this));
+
+    return this.div;
+}
+
+Tile.prototype.open = function()
+{
+    $(this.div).addClass('box'+this.count)
+    $(this.div).addClass('open');
+}

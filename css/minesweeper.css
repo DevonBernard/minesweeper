@@ -1,4 +1,5 @@
 .minesweeper {
+    height:100%;
     background: #31363c;
     font-family: Lato,arial,sans-serif;
 }
@@ -12,6 +13,8 @@
     border-radius:2px;
     height: 50px;
     width: 50px;
+    text-align: center;
+    vertical-align: top;
     cursor: pointer;
     background: #6fc0ff;
     transition: margin 0.3s ease,
@@ -39,6 +42,11 @@
             box-shadow 0.3s ease;
     box-shadow: 0px 0px 0px #1976D2;
 }
+.minesweeper .tile img {
+    display: none;
+    height: 50px;
+    width: 50px;
+}
 .minesweeper .tile.open {
     margin:6px 10px 10px 6px;
     text-align: center;
@@ -52,6 +60,9 @@
     line-height: 50px;
     font-size: 32px;
     font-weight:900;
+}
+.minesweeper .tile.open img {
+    display:block;
 }
 .minesweeper .tile.box1 {
     color: #2980b9;
