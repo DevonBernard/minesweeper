@@ -7,7 +7,18 @@
     <meta name="description" content="A simple online game of Minesweeper.">
     <meta name="keywords" content="minesweeper, videogame, online">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="css/minesweeper.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:900,400" type="text/css">
 </head>
 <body>
+    <div id="minesweeper">
+        Game
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/minesweeper.js"></script>
+    <script type="text/javascript">
+        var ms = new Minesweeper("#minesweeper");
+        ms.start();
+    </script>
 </body>
 </html>
