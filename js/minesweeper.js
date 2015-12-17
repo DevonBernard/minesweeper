@@ -3,6 +3,7 @@ var Minesweeper = function(ele)
     this.container = $(ele);
     this.dimensions = {x: 8, y:8};
     this.mines = 10;
+    this.flags = 0;
     this.tilesOpened = 0;
     this.board = [];
 };
@@ -118,14 +119,22 @@ Minesweeper.prototype.renderHeader = function()
     var header = $("<div class='header row' />");
     var innerHeader = $("<div class='col-xs-12 col-sm-10 col-sm-offset-1' />")
 
-    innerHeader.append("<div class='col-xs-3'><i class='fa fa-th'></i><span id='ms-grid'>8x8</span></div>");
-    innerHeader.append("<div class='col-xs-3'><i class='fa fa-bomb'></i><span id='ms-mines'>10</span></div>");
-    innerHeader.append("<div class='col-xs-3'><i class='fa fa-flag'></i><span id='ms-flags'>0/10</span></div>");
-    innerHeader.append("<div class='col-xs-3'><i class='fa fa-check-circle-o'></i><span id='ms-tiles'>36/36</tiles></div>");
+    innerHeader.append("<div class='col-xs-3'><i class='fa fa-th'></i><span id='ms-grid'></span></div>");
+    innerHeader.append("<div class='col-xs-3'><i class='fa fa-bomb'></i><span id='ms-mines'></span></div>");
+    innerHeader.append("<div class='col-xs-3'><i class='fa fa-flag'></i><span id='ms-flags'></span></div>");
+    innerHeader.append("<div class='col-xs-3'><i class='fa fa-check-circle-o'></i><span id='ms-tiles'></tiles></div>");
 
     header.append(innerHeader);
     this.container.append(header);
+    this.updateHeader();
 };
+
+Minesweeper.prototype.updateHeader = function(){
+    $('#ms-grid').text(this.dimensions.x + " x " + this.dimensions.y);
+    $("#ms-mines").text(this.mines);
+    $("#ms-flags").text(this.flags);
+    $("#ms-tiles").text(this.tilesOpened + " / " + ((this.dimensions.x * this.dimensions.y) - this.mines));
+}
 
 var Tile = function()
 {
