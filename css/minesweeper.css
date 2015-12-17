@@ -3,8 +3,11 @@
     background: #31363c;
     font-family: Lato,arial,sans-serif;
 }
-.minesweeper .row {
+.minesweeper .mask {
     font-size:0px;
+}
+.minesweeper .mask .tile img {
+    display: none;
 }
 .minesweeper .tile {
     position:relative;
@@ -17,6 +20,10 @@
     vertical-align: top;
     cursor: pointer;
     background: #6fc0ff;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 50px;
+    font-weight:900;
     transition: margin 0.3s ease,
             box-shadow 0.3s ease;
     box-shadow: 1px 0px 0px #1976D2,0px 1px 0px #1976D2,
@@ -43,23 +50,17 @@
     box-shadow: 0px 0px 0px #1976D2;
 }
 .minesweeper .tile img {
-    display: none;
     height: 50px;
     width: 50px;
 }
 .minesweeper .tile.open {
     margin:6px 10px 10px 6px;
-    text-align: center;
-    vertical-align: top;
     cursor:default;
     background:#fafafa;
     box-shadow: 0px 0px 0px #1976D2;
 }
 .minesweeper .tile.open span {
-    vertical-align: middle;
-    line-height: 50px;
     font-size: 32px;
-    font-weight:900;
 }
 .minesweeper .tile.open img {
     display:block;

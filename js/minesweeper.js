@@ -9,6 +9,8 @@ var Minesweeper = function(ele)
 
 Minesweeper.prototype.start = function()
 {
+    this.gameBoard = $("<div class='mask'></div>");
+    this.container.append(this.gameBoard);
     this.container.addClass('minesweeper');
     this.createBoard();
     this.setMines();
@@ -86,12 +88,12 @@ Minesweeper.prototype.renderBoard = function()
 {
     for(var y = 0; y < this.dimensions.y; y++)
     {
-        var row = $("<div class='row'></div>");
+        var row = $("<div class='board-row'></div>");
         for(var x = 0; x < this.dimensions.x; x++)
         {
             row.append(this.board[y][x].render());
         }
-        this.container.append(row);
+        this.gameBoard.append(row);
     }
 };
 
