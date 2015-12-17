@@ -89,3 +89,43 @@
 .minesweeper .tile.box8 {
     color: #c0392b;
 }
+.minesweeper .header {
+    margin:20px auto;
+    text-align: center;
+    color: #ffffff;
+    font-size:1.5em;
+    font-weight:900;
+}
+.minesweeper .header i {
+    display:block;
+}
+.minesweeper .footer {
+    margin:20px auto;
+    text-align: center;
+}
+.minesweeper .footer .ms-btn {
+    position:relative;
+    margin:0 auto;
+    border-radius:3px;
+    max-width:150px;
+    padding:8px 20px;
+    outline:none;
+    cursor:pointer;
+    background: #ffffff;
+    font-weight:900;
+    box-shadow: 0px 5px 0px #666;
+    transition: margin-top 0.3s ease,
+            box-shadow 0.3s ease;
+}
+.minesweeper .footer .ms-btn:hover {
+    margin-top: 2px;
+    box-shadow: 0px 3px 0px #666;
+    transition: margin-top 0.3s ease,
+            box-shadow 0.3s ease;
+}
+.minesweeper .footer .ms-btn:active {
+    margin-top: 5px;
+    box-shadow: 0px 0px 0px #666;
+    transition: margin-top 0.3s ease,
+            box-shadow 0.3s ease;
+}

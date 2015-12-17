@@ -9,12 +9,13 @@ var Minesweeper = function(ele)
 
 Minesweeper.prototype.start = function()
 {
-    this.gameBoard = $("<div class='mask'></div>");
+    this.gameBoard = $("<div class='mask row'></div>");
     this.container.append(this.gameBoard);
     this.container.addClass('minesweeper');
     this.createBoard();
     this.setMines();
     this.renderBoard();
+    this.renderFooter();
 };
 
 Minesweeper.prototype.createBoard = function()
@@ -88,7 +89,7 @@ Minesweeper.prototype.renderBoard = function()
 {
     for(var y = 0; y < this.dimensions.y; y++)
     {
-        var row = $("<div class='board-row'></div>");
+        var row = $("<div class='board-row' />");
         for(var x = 0; x < this.dimensions.x; x++)
         {
             row.append(this.board[y][x].render());
@@ -96,6 +97,19 @@ Minesweeper.prototype.renderBoard = function()
         this.gameBoard.append(row);
     }
 };
+
+Minesweeper.prototype.renderFooter = function()
+{
+    var footer = $("<div class='footer row' />");
+    var innerFooter = $("<div class='col-xs-12 col-sm-8 col-sm-offset-2' />")
+
+    innerFooter.append("<div class='col-xs-4'><div class='ms-btn'>Validate</div></div>");
+    innerFooter.append("<div class='col-xs-4'><div class='ms-btn'>Reset</div></div>");
+    innerFooter.append("<div class='col-xs-4'><div class='ms-btn'>Cheat</div></div>");
+
+    footer.append(innerFooter);
+    this.container.append(footer);
+}
 
 var Tile = function()
 {
