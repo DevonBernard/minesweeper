@@ -198,11 +198,45 @@ Tile.prototype.render = function()
         this.open();
     }).bind(this));
 
+    $(this.div).bind("contextmenu",(function(e){
+        e.preventDefault();
+        this.toggleFlag();
+    }).bind(this));
+
     return this.div;
-}
+};
 
 Tile.prototype.open = function()
 {
+    if(this.flagged)
+    {
+        this.toggleFlag();
+    }
+
+    this.opened = true;
     $(this.div).addClass('box'+this.count)
     $(this.div).addClass('open');
-}
+
+    if(this.isMine)
+    {
+        alert("You lose");
+    }
+};
+
+Tile.prototype.toggleFlag = function()
+{
+    if(!this.opened)
+    {
+        if(!this.flagged)
+        {
+            this.div.append("<span class='fa fa-flag'></span>");
+        }
+        else
+        {
+            this.div.children().remove(".fa-flag");
+        }
+
+        this.flagged = !this.flagged;
+        $(this.div).toggleClass("flag");
+    }
+};

@@ -9,6 +9,37 @@
 .minesweeper .mask .tile img {
     display: none;
 }
+.minesweeper .tile.flag .fa-flag {
+    color: #ffffff;
+    font-size:32px;
+    line-height:50px;
+}
+.minesweeper .tile.flag {
+    background:#f1c40f;
+    box-shadow: 1px 0px 0px #927606,0px 1px 0px #927606,
+            2px 1px 0px #927606,1px 2px 0px #927606,
+            3px 2px 0px #927606,2px 3px 0px #927606,
+            4px 3px 0px #927606,3px 4px 0px #927606,
+            5px 4px 0px #927606,4px 5px 0px #927606;
+    transition: margin 0.3s ease,
+            box-shadow 0.3s ease;
+}
+.minesweeper .tile.flag:hover {
+    margin: 2px 14px 14px 2px;
+    box-shadow: 1px 0px 0px #927606,0px 1px 0px #927606,
+            2px 1px 0px #927606,1px 2px 0px #927606,
+            3px 2px 0px #927606,2px 3px 0px #927606,
+            4px 3px 0px #927606,3px 4px 0px #927606;
+    transition: margin 0.3s ease,
+            box-shadow 0.3s ease;
+}
+.minesweeper .tile.flag:active {
+    margin:6px 10px 10px 6px;
+    box-shadow: 0px 0px 0px #927606;
+    transition: margin 0.3s ease,
+            background 0.3s ease,
+            box-shadow 0.3s ease;
+}
 .minesweeper .tile {
     position:relative;
     display: inline-block;
