@@ -6,11 +6,12 @@ var Minesweeper = function(ele)
     this.flags = 0;
     this.tilesOpened = 0;
     this.board = [];
+    this.cheatModeOn = false;
+    this.gameBoard = $("<div class='mask row'></div>");
 };
 
 Minesweeper.prototype.start = function()
 {
-    this.gameBoard = $("<div class='mask row'></div>");
     this.container.addClass('minesweeper');
     this.createBoard();
     this.setMines();
@@ -18,6 +19,17 @@ Minesweeper.prototype.start = function()
     this.renderHeader();
     this.renderBoard();
     this.renderFooter();
+};
+
+Minesweeper.prototype.restart = function()
+{
+    if(this.cheatModeOn)
+        this.toggleCheat();
+
+    $(this.container).empty();
+    $(this.gameBoard).empty();
+    this.board = [];
+    this.start();
 };
 
 Minesweeper.prototype.createBoard = function()
@@ -107,8 +119,12 @@ Minesweeper.prototype.renderFooter = function()
     var innerFooter = $("<div class='col-xs-12 col-sm-8 col-sm-offset-2' />");
 
     var button1 = $("<div class='ms-btn'>Validate</div>");
-    var button2 = $("<div class='ms-btn'>Reset</div>");
+    var button2 = $("<div class='ms-btn' id='ms-btn-reset'>Reset</div>");
     var button3 = $("<div class='ms-btn' id='ms-btn-cheat'>Cheat (OFF)</div>");
+
+    $(button2).click((function(){
+        this.restart();
+    }).bind(this));
 
     $(button3).click((function(){
         this.toggleCheat();
@@ -142,7 +158,7 @@ Minesweeper.prototype.updateHeader = function(){
     $("#ms-mines").text(this.mines);
     $("#ms-flags").text(this.flags);
     $("#ms-tiles").text(this.tilesOpened + " / " + ((this.dimensions.x * this.dimensions.y) - this.mines));
-}
+};
 
 Minesweeper.prototype.toggleCheat = function(){
     var btn = $('#ms-btn-cheat');
@@ -154,6 +170,7 @@ Minesweeper.prototype.toggleCheat = function(){
 
     $(btn).toggleClass("active");
     $(this.gameBoard).toggleClass("mask");
+    this.cheatModeOn = !this.cheatModeOn;
 }
 
 var Tile = function()
