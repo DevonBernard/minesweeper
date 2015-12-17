@@ -104,11 +104,19 @@ Minesweeper.prototype.renderBoard = function()
 Minesweeper.prototype.renderFooter = function()
 {
     var footer = $("<div class='footer row' />");
-    var innerFooter = $("<div class='col-xs-12 col-sm-8 col-sm-offset-2' />")
+    var innerFooter = $("<div class='col-xs-12 col-sm-8 col-sm-offset-2' />");
 
-    innerFooter.append("<div class='col-xs-4'><div class='ms-btn'>Validate</div></div>");
-    innerFooter.append("<div class='col-xs-4'><div class='ms-btn'>Reset</div></div>");
-    innerFooter.append("<div class='col-xs-4'><div class='ms-btn'>Cheat</div></div>");
+    var button1 = $("<div class='ms-btn'>Validate</div>");
+    var button2 = $("<div class='ms-btn'>Reset</div>");
+    var button3 = $("<div class='ms-btn' id='ms-btn-cheat'>Cheat (OFF)</div>");
+
+    $(button3).click((function(){
+        this.toggleCheat();
+    }).bind(this));
+
+    innerFooter.append($("<div class='col-xs-4'></div>").append(button1));
+    innerFooter.append($("<div class='col-xs-4'></div>").append(button2));
+    innerFooter.append($("<div class='col-xs-4'></div>").append(button3));
 
     footer.append(innerFooter);
     this.container.append(footer);
@@ -134,6 +142,18 @@ Minesweeper.prototype.updateHeader = function(){
     $("#ms-mines").text(this.mines);
     $("#ms-flags").text(this.flags);
     $("#ms-tiles").text(this.tilesOpened + " / " + ((this.dimensions.x * this.dimensions.y) - this.mines));
+}
+
+Minesweeper.prototype.toggleCheat = function(){
+    var btn = $('#ms-btn-cheat');
+
+    if($(btn).hasClass("active"))
+        $(btn).text("Cheat (OFF)");
+    else
+        $(btn).text("Cheat (ON)");
+
+    $(btn).toggleClass("active");
+    $(this.gameBoard).toggleClass("mask");
 }
 
 var Tile = function()
