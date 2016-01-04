@@ -7,7 +7,7 @@ var Minesweeper = function(ele)
     this.tilesOpened = 0;
     this.board = [];
     this.cheatModeOn = false;
-    this.gameBoard = $("<div class='mask row'></div>");
+    this.gameBoard = $("<div class='board mask row'></div>");
 };
 
 Minesweeper.prototype.start = function()
@@ -188,7 +188,7 @@ Tile.prototype.render = function()
     this.div = $("<div class='tile'></div>");
 
     if(this.isMine)
-        this.div.append("<img src='img/explosion.png'>");
+        this.div.append("<i class='fa fa-bomb'></i>");
     else if(this.count > 0)
         this.div.append("<span>"+this.count+"</span>");
     else

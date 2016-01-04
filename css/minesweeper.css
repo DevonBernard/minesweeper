@@ -3,95 +3,95 @@
     background: #31363c;
     font-family: Lato,arial,sans-serif;
 }
-.minesweeper .mask {
+.minesweeper .board {
+    font-size:16px;
+    transition: font-size 0.5s ease;
+}
+.minesweeper .board.mask {
     font-size:0px;
+    transition: font-size 0.5s ease;
+}
+.minesweeper .tile img {
+    height: 32px;
+    width: 32px;
+    transition: height 0.5s ease,
+        width 0.5s ease;
 }
 .minesweeper .mask .tile img {
-    display: none;
+    height: 0px;
+    width: 0px;
+    transition: height 0.5s ease,
+        width 0.5s ease;
 }
-.minesweeper .tile.flag .fa-flag {
+.minesweeper .board .tile .fa-flag {
+    font-size:0px;
+    transition: font-size 0.5s ease;
+}
+.minesweeper .board.mask .tile .fa-flag {
+    font-size:16px;
+    transition: font-size 0.5s ease;
+}
+.minesweeper .tile.flag {
     color: #ffffff;
-    font-size:32px;
-    line-height:50px;
+}
+.minesweeper .tile.flag .fa {
+    line-height:32px;
 }
 .minesweeper .tile.flag {
     background:#f1c40f;
-    box-shadow: 1px 0px 0px #927606,0px 1px 0px #927606,
-            2px 1px 0px #927606,1px 2px 0px #927606,
-            3px 2px 0px #927606,2px 3px 0px #927606,
-            4px 3px 0px #927606,3px 4px 0px #927606,
-            5px 4px 0px #927606,4px 5px 0px #927606;
-    transition: margin 0.3s ease,
-            box-shadow 0.3s ease;
-}
-.minesweeper .tile.flag:hover {
-    margin: 2px 14px 14px 2px;
-    box-shadow: 1px 0px 0px #927606,0px 1px 0px #927606,
-            2px 1px 0px #927606,1px 2px 0px #927606,
-            3px 2px 0px #927606,2px 3px 0px #927606,
-            4px 3px 0px #927606,3px 4px 0px #927606;
-    transition: margin 0.3s ease,
-            box-shadow 0.3s ease;
-}
-.minesweeper .tile.flag:active {
-    margin:6px 10px 10px 6px;
-    box-shadow: 0px 0px 0px #927606;
-    transition: margin 0.3s ease,
-            background 0.3s ease,
-            box-shadow 0.3s ease;
+    box-shadow: inset -3px -3px 0px #B99C32, inset 3px 3px 0px #E6E1A6;
 }
 .minesweeper .tile {
     position:relative;
     display: inline-block;
-    margin:0 16px 16px 0;
-    border-radius:2px;
-    height: 50px;
-    width: 50px;
+    //margin:0 16px 16px 0;
+    //border-radius:2px;
+    border-top: 1px solid #545454;
+    border-left: 1px solid #545454;
+    height: 32px;
+    width: 32px;
     text-align: center;
     vertical-align: top;
     cursor: pointer;
     background: #6fc0ff;
     vertical-align: middle;
     text-align: center;
-    line-height: 50px;
+    line-height: 32px;
     font-weight:900;
     transition: margin 0.3s ease,
             box-shadow 0.3s ease;
-    box-shadow: 1px 0px 0px #1976D2,0px 1px 0px #1976D2,
+    /*box-shadow: 1px 0px 0px #1976D2,0px 1px 0px #1976D2,
             2px 1px 0px #1976D2,1px 2px 0px #1976D2,
             3px 2px 0px #1976D2,2px 3px 0px #1976D2,
             4px 3px 0px #1976D2,3px 4px 0px #1976D2,
-            5px 4px 0px #1976D2,4px 5px 0px #1976D2;
+            5px 4px 0px #1976D2,4px 5px 0px #1976D2;*/
+    box-shadow: inset -3px -3px 0px #408FDC, inset 3px 3px 0px #B4DAFF;
 }
 .minesweeper .tile:hover {
-    margin: 2px 14px 14px 2px;
+    /*margin: 2px 14px 14px 2px;
     transition: margin 0.3s ease,
             box-shadow 0.3s ease;
    box-shadow: 1px 0px 0px #1976D2,0px 1px 0px #1976D2,
             2px 1px 0px #1976D2,1px 2px 0px #1976D2,
             3px 2px 0px #1976D2,2px 3px 0px #1976D2,
-            4px 3px 0px #1976D2,3px 4px 0px #1976D2;
+            4px 3px 0px #1976D2,3px 4px 0px #1976D2;*/
+    //box-shadow: inset -3px -3px 0px #408FDC, inset 3px 3px 0px #B4DAFF;
 }
 .minesweeper .tile:active {
-    margin:6px 10px 10px 6px;
+    /*margin:6px 10px 10px 6px;
     background:#ADDBFF;
     transition: margin 0.3s ease,
             background 0.3s ease,
             box-shadow 0.3s ease;
-    box-shadow: 0px 0px 0px #1976D2;
-}
-.minesweeper .tile img {
-    height: 50px;
-    width: 50px;
+    box-shadow: 0px 0px 0px #1976D2;*/
+    box-shadow: inset 0px 0px 0px #408FDC;
 }
 .minesweeper .tile.open {
-    margin:6px 10px 10px 6px;
+    //margin:6px 10px 10px 6px;
     cursor:default;
     background:#fafafa;
     box-shadow: 0px 0px 0px #1976D2;
-}
-.minesweeper .tile.open span {
-    font-size: 32px;
+    font-size:16px;
 }
 .minesweeper .tile.open img {
     display:block;
