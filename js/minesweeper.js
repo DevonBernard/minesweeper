@@ -133,9 +133,9 @@ Minesweeper.prototype.renderFooter = function()
         this.toggleCheat();
     }).bind(this));
 
-    innerFooter.append($("<div class='col-xs-4'></div>").append(button1));
-    innerFooter.append($("<div class='col-xs-4'></div>").append(button2));
-    innerFooter.append($("<div class='col-xs-4'></div>").append(button3));
+    innerFooter.append($("<div class='col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0'></div>").append(button1));
+    innerFooter.append($("<div class='col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0'></div>").append(button2));
+    innerFooter.append($("<div class='col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-0'></div>").append(button3));
 
     footer.append(innerFooter);
     this.container.append(footer);
