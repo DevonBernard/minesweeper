@@ -3,10 +3,20 @@
     background: #31363c;
     font-family: Lato,arial,sans-serif;
 }
+.minesweeper .board-container {
+    display: table;
+    width: 100%;
+}
 .minesweeper .board {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
     font-size:16px;
     transition: font-size 0.5s ease;
 }
+.minesweeper .board .tile span::selection{ background-color: transparent;}
+.minesweeper .board .tile span::moz-selection{ background-color: transparent;}
+.minesweeper .board .tile span::webkit-selection{ background-color: transparent;}
 .minesweeper .board.mask {
     font-size:0px;
     transition: font-size 0.5s ease;

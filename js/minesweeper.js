@@ -7,7 +7,7 @@ var Minesweeper = function(ele)
     this.tilesOpened = 0;
     this.board = [];
     this.cheatModeOn = false;
-    this.gameBoard = $("<div class='board mask row'></div>");
+    this.gameBoard = $("<div class='board mask'></div>");
 };
 
 Minesweeper.prototype.start = function()
@@ -101,6 +101,7 @@ Minesweeper.prototype.logBoard = function()
 
 Minesweeper.prototype.renderBoard = function()
 {
+    var boardContainer = $("<div class='board-container row'>");
     for(var y = 0; y < this.dimensions.y; y++)
     {
         var row = $("<div class='board-row' />");
@@ -110,7 +111,9 @@ Minesweeper.prototype.renderBoard = function()
         }
         this.gameBoard.append(row);
     }
-    this.container.append(this.gameBoard);
+
+    boardContainer.append(this.gameBoard);
+    this.container.append(boardContainer);
 };
 
 Minesweeper.prototype.renderFooter = function()
@@ -214,12 +217,15 @@ Tile.prototype.open = function()
     }
 
     this.opened = true;
-    $(this.div).addClass('box'+this.count)
     $(this.div).addClass('open');
 
     if(this.isMine)
     {
         alert("You lose");
+    }
+    else
+    {
+        $(this.div).addClass('box'+this.count)
     }
 };
 
