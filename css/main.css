@@ -1,6 +1,11 @@
 html, body {
     margin:0;
     height:100%;
+    background-color: #31363c;
+}
+p {
+    color:#fff;
+    text-align:center;
 }
 .minesweeper {
     padding:20px 30px;
