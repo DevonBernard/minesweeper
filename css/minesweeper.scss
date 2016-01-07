@@ -1,3 +1,6 @@
+$tile-height: 32px;
+$tile-font-size: 16px;
+
 .minesweeper {
     background: #31363c;
     font-family: Lato,arial,sans-serif;
@@ -20,7 +23,7 @@
             }
 
             .fa-flag {
-                font-size:16px;
+                font-size:$tile-font-size;
                 transition: font-size 0.5s ease;
             }
         }
@@ -30,7 +33,7 @@
         display: table-cell;
         text-align: center;
         vertical-align: middle;
-        font-size:16px;
+        font-size:$tile-font-size;
         transition: font-size 0.5s ease;
 
         .tile {
@@ -38,13 +41,13 @@
             position:relative;
             border-top: 1px solid rgba(0,0,0,0.1);
             border-left: 1px solid rgba(0,0,0,0.1);
-            height: 32px;
-            width: 32px;
+            height: $tile-height;
+            width: $tile-height;
             text-align: center;
             vertical-align: top;
             cursor: pointer;
             background: #6fc0ff;
-            line-height: 32px;
+            line-height: $tile-height;
             font-weight:900;
             box-shadow: inset -3px -3px 0px #408FDC, inset 3px 3px 0px #B4DAFF;
             transition: box-shadow 0.3s ease;
@@ -54,8 +57,8 @@
             span::webkit-selection{background-color: transparent;}
 
             img {
-                height: 32px;
-                width: 32px;
+                height: $tile-height;
+                width: $tile-height;
                 transition: height 0.5s ease,
                     width 0.5s ease;
             }
@@ -84,7 +87,7 @@
                 box-shadow 0.3s ease;
 
             .fa {
-                line-height:32px;
+                line-height:$tile-height;
             }
         }
 
@@ -102,7 +105,7 @@
             cursor:default;
             background:#fafafa;
             box-shadow: 0px 0px 0px #1976D2;
-            font-size:16px;
+            font-size:$tile-font-size;
 
             img {
                 display:block;
@@ -147,7 +150,7 @@
         }
 
         @media (max-width: 767px) {
-            font-size: 16px;
+            font-size: $tile-font-size;
         }
     }
 
