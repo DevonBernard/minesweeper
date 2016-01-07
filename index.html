@@ -7,21 +7,24 @@
     <meta name="description" content="A simple online game of Minesweeper.">
     <meta name="keywords" content="minesweeper, videogame, online">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- External Style Sheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:900,400" type="text/css">
 
+    <!-- Internal Style Sheets -->
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
-    <link type="text/css" rel="stylesheet" href="css/minesweeper.css"/>
+    <link type="text/css" rel="stylesheet" href="css/dist/minesweeper.min.css"/>
 
 </head>
 <body>
     <div id="minesweeper" class="container-fluid">
     </div>
-    <p>Left-click tiles to reveal them</p>
-    <p>Right-click tiles to flag them</p>
+    <p>Left-click reveal tiles</p>
+    <p>Right-click to flag tiles</p>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="js/minesweeper.js"></script>
+    <script src="js/dist/minesweeper.js"></script>
     <script type="text/javascript">
         var ms = new Minesweeper("#minesweeper");
         ms.Start();
