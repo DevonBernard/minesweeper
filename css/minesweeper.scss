@@ -1,0 +1,193 @@
+.minesweeper {
+    background: #31363c;
+    font-family: Lato,arial,sans-serif;
+
+    .board-container {
+        display: table;
+        width: 100%;
+    }
+
+    .board.mask {
+        font-size:0px;
+        transition: font-size 0.5s ease;
+
+        .tile {
+            img {
+                height: 0px;
+                width: 0px;
+                transition: height 0.5s ease,
+                    width 0.5s ease;
+            }
+
+            .fa-flag {
+                font-size:16px;
+                transition: font-size 0.5s ease;
+            }
+        }
+    }
+
+    .board {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        font-size:16px;
+        transition: font-size 0.5s ease;
+
+        .tile {
+            display: inline-block;
+            position:relative;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            border-left: 1px solid rgba(0,0,0,0.1);
+            height: 32px;
+            width: 32px;
+            text-align: center;
+            vertical-align: top;
+            cursor: pointer;
+            background: #6fc0ff;
+            line-height: 32px;
+            font-weight:900;
+            box-shadow: inset -3px -3px 0px #408FDC, inset 3px 3px 0px #B4DAFF;
+            transition: box-shadow 0.3s ease;
+
+            span::selection{background-color: transparent;}
+            span::moz-selection{background-color: transparent;}
+            span::webkit-selection{background-color: transparent;}
+
+            img {
+                height: 32px;
+                width: 32px;
+                transition: height 0.5s ease,
+                    width 0.5s ease;
+            }
+
+            .fa-flag {
+                font-size:0px;
+                transition: font-size 0.5s ease;
+            }
+        }
+
+        .tile:hover {
+            box-shadow: inset -1px -1px 0px #408FDC, inset 1px 1px 0px #B4DAFF;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .tile:active {
+            box-shadow: inset 0px 0px 0px #408FDC;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .tile.flag {
+            color: #ffffff;
+            background:#f1c40f;
+            box-shadow: inset -3px -3px 0px #B99C32, inset 3px 3px 0px #E6E1A6;
+            transition: background 0.3s ease,
+                box-shadow 0.3s ease;
+
+            .fa {
+                line-height:32px;
+            }
+        }
+
+        .tile.flag:hover {
+            box-shadow: inset -1px -1px 0px #B99C32, inset 1px 1px 0px #E6E1A6;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .tile.flag:active {
+            box-shadow: inset 0px 0px 0px #E6E1A6;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .tile.open {
+            cursor:default;
+            background:#fafafa;
+            box-shadow: 0px 0px 0px #1976D2;
+            font-size:16px;
+
+            img {
+                display:block;
+            }
+        }
+
+        .tile.box1 {
+            color: #2980b9;
+        }
+        .tile.box2 {
+            color: #16a085;
+        }
+        .tile.box3 {
+            color: #f1c40f;
+        }
+        .tile.box4 {
+            color: #f39c12;
+        }
+        .tile.box5 {
+            color: #e67e22;
+        }
+        .tile.box6 {
+            color: #d35400;
+        }
+        .tile.box7 {
+            color: #e74c3c;
+        }
+        .tile.box8 {
+            color: #c0392b;
+        }
+    }
+
+    .header {
+        margin:20px auto;
+        text-align: center;
+        color: #ffffff;
+        font-size:1.5em;
+        font-weight:900;
+
+        span {
+            display:block;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 16px;
+        }
+    }
+
+    .footer {
+        margin:20px auto;
+        text-align: center;
+
+        .ms-btn {
+            position:relative;
+            margin:10px auto;
+            border-radius:3px;
+            max-width:150px;
+            padding:8px 20px;
+            outline:none;
+            cursor:pointer;
+            background: #ffffff;
+            font-weight:900;
+            box-shadow: 0px 5px 0px #666;
+            transition: margin-top 0.3s ease,
+                    margin-bottom 0.3s ease,
+                    box-shadow 0.3s ease;
+        }
+
+        .ms-btn:hover {
+            margin-top: 12px;
+            margin-bottom:8px;
+            box-shadow: 0px 3px 0px #666;
+            transition: margin-top 0.3s ease,
+                    margin-bottom 0.3s ease,
+                    box-shadow 0.3s ease;
+        }
+
+        .ms-btn:active, .ms-btn.active {
+            margin-top: 15px;
+            margin-bottom:5px;
+            background: #ccc;
+            box-shadow: 0px 0px 0px #666;
+            transition: margin-top 0.3s ease,
+                    margin-bottom 0.3s ease,
+                    box-shadow 0.3s ease;
+        }
+    }
+}
